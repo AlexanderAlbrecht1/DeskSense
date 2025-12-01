@@ -1,9 +1,13 @@
 .wrapper-main {
-
-  background-color: #2F3A66;
-  color: #F7F7F7;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #232f34;
+  color: #f7f7f7;
 }
 
 h1 {
   all: unset;
 }
+
+

@@ -1,10 +1,12 @@
 .footer-wrapper {
+  position: absolute;
+  bottom: 0;
   box-sizing: border-box;
   padding: 8px 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color:#48A1B1;
+  background-color:#4A6572;
   color: #F7F7F7;
 }
