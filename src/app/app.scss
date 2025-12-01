@@ -1,0 +1,108 @@
+.whole-wrapper {
+  height: 100vh;
+}
+
+
+
+
+// Primary
+$color-primary:        #4C5B8F;
+$color-primary-light:  #8CA0D7;
+$color-primary-dark:   #2F3A66;
+$color-on-primary:     #FFFFFF;
+
+// Secondary
+$color-secondary:        #80DEEA;
+$color-secondary-light:  #B2F1F5;
+$color-secondary-dark:   #48A1B1;
+$color-on-secondary:     #1F1F1F;
+
+// Neutral
+$color-text-primary:    #1D1D1D;
+$color-text-secondary:  #5E5E5E;
+$color-disabled-text:   #9E9E9E;
+
+$color-border:          #D6D6D6;
+$color-surface:         #F5F5F5;
+$color-background:      #F0F2F5;
+
+// States
+$color-success:         #4CAF50;
+$color-warning:         #FFB300;
+$color-error:           #D32F2F;
+$color-info:            #0288D1;
+
+@mixin apply-color($bg, $text) {
+  background-color: $bg;
+  color: $text;
+
+  // Optional für bessere Usability:
+  fill: $text;
+  stroke: $text;
+}
+
+@mixin card {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+@mixin text-primary {
+  color: $color-text-primary;
+}
+
+@mixin text-secondary {
+  color: $color-text-secondary;
+}
+
+@mixin text-disabled {
+  color: $color-disabled-text;
+}
+
+//Buttons
+@mixin button-primary {
+  @include apply-color($color-primary, $color-on-primary);
+  border: none;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+
+  &:disabled {
+    background-color: lighten($color-primary, 35%);
+    color: $color-disabled-text;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-secondary {
+  @include apply-color($color-secondary, $color-on-secondary);
+  border: none;
+
+  &:hover {
+    background-color: $color-secondary-dark;
+  }
+
+  &:disabled {
+    background-color: lighten($color-secondary, 30%);
+    color: $color-disabled-text;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-outlined {
+  border: 2px solid $color-primary;
+  background: transparent;
+  color: $color-primary;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.08);
+  }
+
+  &:disabled {
+    border-color: $color-border;
+    color: $color-disabled-text;
+  }
+}
+
