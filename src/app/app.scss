@@ -1,36 +1,35 @@
 .whole-wrapper {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-
-
-
 // Primary
-$color-primary:        #4C5B8F;
-$color-primary-light:  #8CA0D7;
-$color-primary-dark:   #2F3A66;
-$color-on-primary:     #FFFFFF;
+$color-primary: #4c5b8f;
+$color-primary-light: #8ca0d7;
+$color-primary-dark: #2f3a66;
+$color-on-primary: #ffffff;
 
 // Secondary
-$color-secondary:        #80DEEA;
-$color-secondary-light:  #B2F1F5;
-$color-secondary-dark:   #48A1B1;
-$color-on-secondary:     #1F1F1F;
+$color-secondary: #80deea;
+$color-secondary-light: #b2f1f5;
+$color-secondary-dark: #48a1b1;
+$color-on-secondary: #1f1f1f;
 
 // Neutral
-$color-text-primary:    #1D1D1D;
-$color-text-secondary:  #5E5E5E;
-$color-disabled-text:   #9E9E9E;
+$color-text-primary: #1d1d1d;
+$color-text-secondary: #5e5e5e;
+$color-disabled-text: #9e9e9e;
 
-$color-border:          #D6D6D6;
-$color-surface:         #F5F5F5;
-$color-background:      #F0F2F5;
+$color-border: #d6d6d6;
+$color-surface: #f5f5f5;
+$color-background: #f0f2f5;
 
 // States
-$color-success:         #4CAF50;
-$color-warning:         #FFB300;
-$color-error:           #D32F2F;
-$color-info:            #0288D1;
+$color-success: #4caf50;
+$color-warning: #ffb300;
+$color-error: #d32f2f;
+$color-info: #0288d1;
 
 @mixin apply-color($bg, $text) {
   background-color: $bg;
@@ -105,4 +104,3 @@ $color-info:            #0288D1;
     color: $color-disabled-text;
   }
 }
-
