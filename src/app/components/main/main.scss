@@ -1,6 +1,10 @@
 .wrapper-main {
-  height: calc(100% - 200px);
-  background-color: #2F3A66;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #759276;
   color: #F7F7F7;
 }
 

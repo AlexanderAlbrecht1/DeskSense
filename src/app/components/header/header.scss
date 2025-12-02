@@ -2,16 +2,16 @@
 
 .header-wrapper {
   box-sizing: border-box;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  // height: 100px;
   padding: 8px 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color:#48A1B1;
+  background-color:#424543;
   color: #F7F7F7;
 }
