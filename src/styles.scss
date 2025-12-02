@@ -44,3 +44,33 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$bgGreen: #759276;
+$bgGrey: #424543;
+$fontWhite: #F7F7F7;
+$fontBlack: #130404;
+$hoverPurple: #B89EB7;
+$hoverPurpleDark: #6C566B;
+
+.btn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 40px;
+  max-width: 300px;
+  border: 2px solid $bgGrey;
+  border-radius: 25px;
+  box-shadow: 5px 10px 8px $bgGrey;
+  >p {
+    all: unset;
+    font-size: 32px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $hoverPurpleDark;
+    box-shadow: 5px 10px 8px $hoverPurple;
+    color: $fontWhite;
+  }
+}
+
