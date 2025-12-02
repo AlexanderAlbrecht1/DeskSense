@@ -57,9 +57,9 @@ $hoverPurpleDark: #6C566B;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 40px;
+  padding: 16px 40px;
   max-width: 300px;
-  border: 2px solid $bgGrey;
+  // border: 2px solid $bgGrey;
   border-radius: 25px;
   box-shadow: 5px 10px 8px $bgGrey;
   >p {
