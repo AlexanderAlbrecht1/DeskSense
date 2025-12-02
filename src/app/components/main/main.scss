@@ -1,13 +1,47 @@
+@use "../../../styles.scss" as *;
+
 .wrapper-main {
+  padding-bottom: 100px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  background-color: #232f34;
-  color: #f7f7f7;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $bgGreen;
+  color: $fontBlack;
 }
 
 h1 {
-  all: unset;
+  margin-bottom: 100px;
+  font-size: 64px;
+}
+
+p {
+  text-align: center;
+  line-height: 120%;
+  font-size: 24px;
+  max-width: 800px;
+  margin-bottom: 64px;
+  // white-space: inherit;
+}
+
+.button-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  gap: 64px;
+
+}
+
+.flex-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 64px;
 }
 
 

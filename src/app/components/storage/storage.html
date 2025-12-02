@@ -1,1 +1,40 @@
-<p>storage works!</p>
+<h2 mat-dialog-title>Gegenstand verstauen</h2>
+
+<mat-dialog-content class="mat-typography">
+  <mat-form-field class="example-full-width">
+    <mat-label>Was möchtest du verstauen?</mat-label>
+    <input
+      matInput
+      required
+      [formControl]="item"
+      (blur)="updateErrorMessageItem()"
+      placeholder="Bsp: USB-C Kabel weiß, 3 Meter"
+      value=""
+    />
+    @if (item.invalid) {
+    <mat-error>{{ errorMessage() }}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Wo solls hin?</mat-label>
+    <mat-select required [formControl]="storage" (blur)="updateErrorMessageStorage()">
+      <mat-option value="one">Schrank</mat-option>
+      <mat-option value="two">Regal</mat-option>
+      <mat-option value="three">Schreibtisch</mat-option>
+    </mat-select>
+    @if (storage.invalid) {
+    <mat-error>{{ errorMessageStorage() }}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Noch etwas genauer?</mat-label>
+    <input matInput placeholder="Mittleres Schubfach, linke Seite" value="" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <div class="btn" mat-dialog-close><p>Abbrechen</p></div>
+  <div class="btn" [mat-dialog-close]="true" cdkFocusInitial><p>Verstauen</p></div>
+</mat-dialog-actions>

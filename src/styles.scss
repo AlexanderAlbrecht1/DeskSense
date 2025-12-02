@@ -6,6 +6,13 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
+html, body {
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+
 html {
   @include mat.theme((
     color: (
@@ -37,3 +44,48 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$bgGreen: #759276;
+$bgGrey: #424543;
+$fontWhite: #F7F7F7;
+$fontBlack: #130404;
+$hoverPurple: #B89EB7;
+$hoverPurpleDark: #6C566B;
+$dialogGrey: #D1D9D3;
+
+.btn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 40px;
+  max-width: 300px;
+  // border: 2px solid $bgGrey;
+  border-radius: 25px;
+  box-shadow: 5px 10px 8px $bgGrey;
+  >p {
+    all: unset;
+    font-size: 32px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $hoverPurpleDark;
+    box-shadow: 5px 10px 8px $hoverPurple;
+    color: $fontWhite;
+  }
+}
+
+:root {
+  @include mat.dialog-overrides((
+    container-color: #D1D9D3,
+    container-min-width: 600px,
+    container-max-width: 800px,
+  ));
+}
+
+.mat-mdc-dialog-container {
+  max-width: unset !important;
+}
+
+
+

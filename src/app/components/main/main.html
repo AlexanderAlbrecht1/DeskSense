@@ -1,8 +1,20 @@
 <div class="wrapper-main">
   <h1>DeskSense - endlich Ordnung!</h1>
+  <p>DeskSense ist die smarte Inventar-Lösung, die Ordnung in jedes Büro bringt, ohne komplizierte Prozesse oder teure Hardware. Mit einer modernen, intuitiven Oberfläche findest du jedes Gerät, Kabel oder Zubehör in Sekunden wieder! Egal ob im Schrank, im Lager oder im Meetingraum. Einfach zuordnen, speichern und du weißt jederzeit, wo alles ist.</p>
 
-  <div>
-    <button>Verstauen</button>
-    <button>Finden</button>
+  <div class="button-area">
+    <div class="flex-row">
+      <div class="btn" (click)="openStoreDialog()" matTooltip="Etwas neues einlagern">
+        <p>Verstauen</p>
+      </div>
+
+      <div class="btn" (click)="openSearchDialog()" matTooltip="Suche nach einer Sache">
+        <p>Raussuchen</p>
+      </div>
+    </div>
+
+    <div class="btn" (click)="openStoreOverviewDialog()" matTooltip="Was ist alles eingelagert?">
+      <p>Übersicht</p>
+    </div>
   </div>
 </div>
