@@ -45,13 +45,16 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-$bgGreen: #759276;
-$bgGrey: #424543;
-$fontWhite: #F7F7F7;
-$fontBlack: #130404;
-$hoverPurple: #B89EB7;
-$hoverPurpleDark: #6C566B;
-$dialogGrey: #D1D9D3;
+$headlineButtonsFont: #1F2937;
+$bodyFont: #4B5563;
+$primary: #4C89FF;
+$mainBg: #F5F7FA;
+$btn: #4C89FF;
+$btnHover: #3B6ED6;
+$linkFont: #4B5563;
+$linkFontHover: #6EE7B7;
+$linkSocialFont: #4C89FF;
+$matTitleFont: #1F2937;
 
 .btn {
   box-sizing: border-box;
@@ -62,16 +65,17 @@ $dialogGrey: #D1D9D3;
   max-width: 300px;
   // border: 2px solid $bgGrey;
   border-radius: 25px;
-  box-shadow: 5px 10px 8px $bgGrey;
+  background-color: $btn;
+  // box-shadow: 5px 10px 8px $bgGrey;
   >p {
     all: unset;
     font-size: 32px;
+    color: $headlineButtonsFont;
   }
   &:hover {
     cursor: pointer;
-    background-color: $hoverPurpleDark;
-    box-shadow: 5px 10px 8px $hoverPurple;
-    color: $fontWhite;
+    background-color: $btnHover;
+    // box-shadow: 5px 10px 8px $hoverPurple;
   }
 }
 
