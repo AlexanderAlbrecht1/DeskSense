@@ -36,5 +36,5 @@
 
 <mat-dialog-actions align="end">
   <div class="btn" mat-dialog-close><p>Abbrechen</p></div>
-  <div class="btn" [mat-dialog-close]="true" cdkFocusInitial><p>Verstauen</p></div>
+  <div class="btn" [mat-dialog-close]="true" cdkFocusInitial (click)="this.addItemtoStorage()"><p>Verstauen</p></div>
 </mat-dialog-actions>
