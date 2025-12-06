@@ -18,11 +18,14 @@
 
   <mat-form-field>
     <mat-label>Wo solls hin?</mat-label>
-    <mat-select required [formControl]="storage" (blur)="updateErrorMessageStorage()">
-      <mat-option value="one">Schrank</mat-option>
-      <mat-option value="two">Regal</mat-option>
-      <mat-option value="three">Schreibtisch</mat-option>
-    </mat-select>
+    <input
+      matInput
+      required
+      [formControl]="storage"
+      (blur)="updateErrorMessageStorage()"
+      placeholder="Schrank, Schreibtisch, Backofen ..."
+      value=""
+    />
     @if (storage.invalid) {
     <mat-error>{{ errorMessageStorage() }}</mat-error>
     }

@@ -1,0 +1,7 @@
+@use "../../../styles.scss" as *;
+@use '@angular/material' as mat;
+
+.mat-mdc-dialog-content {
+  display: flex !important;
+  flex-direction: column !important;
+}
