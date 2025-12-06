@@ -16,14 +16,17 @@ import { DataService } from '../../data.service';
   styleUrl: './storage.scss',
 })
 export class Storage implements OnInit {
-  readonly item = new FormControl('', Validators.required);
+
+  readonly itemInput = new FormControl('', Validators.required);
   readonly storage = new FormControl('', Validators.required);
+  readonly storageDetail = new FormControl('');
+
 
   errorMessage = signal('');
   errorMessageStorage = signal('');
 
   constructor(public dataService : DataService) {
-    merge(this.item.statusChanges, this.item.valueChanges)
+    merge(this.itemInput.statusChanges, this.itemInput.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessageItem());
 
@@ -37,7 +40,7 @@ export class Storage implements OnInit {
   }
 
   updateErrorMessageItem() {
-    if (this.item.hasError('required')) {
+    if (this.itemInput.hasError('required')) {
       this.errorMessage.set('Du musst einen Gegenstand eingeben');
     } else {
       this.errorMessage.set('');
@@ -53,6 +56,9 @@ export class Storage implements OnInit {
   }
 
   addItemtoStorage() {
-    this.dataService.adNewItemtoStorage();
+    console.log(this.itemInput.value, this.storage.value, this.storageDetail.value);
+    this.dataService.adNewItemtoStorage(this.itemInput.value ?? '', this.storage.value ?? '', this.storageDetail.value ?? '');
   }
 }
+
+

@@ -6,12 +6,12 @@
     <input
       matInput
       required
-      [formControl]="item"
+      [formControl]="itemInput"
       (blur)="updateErrorMessageItem()"
       placeholder="Bsp: USB-C Kabel weiß, 3 Meter"
       value=""
     />
-    @if (item.invalid) {
+    @if (itemInput.invalid) {
     <mat-error>{{ errorMessage() }}</mat-error>
     }
   </mat-form-field>
@@ -30,7 +30,7 @@
 
   <mat-form-field class="example-full-width">
     <mat-label>Noch etwas genauer?</mat-label>
-    <input matInput placeholder="Mittleres Schubfach, linke Seite" value="" />
+    <input [formControl]="storageDetail" matInput placeholder="Mittleres Schubfach, linke Seite" value="" />
   </mat-form-field>
 </mat-dialog-content>
 

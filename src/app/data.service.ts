@@ -44,11 +44,12 @@ export class DataService {
     });
   }
 
-  async adNewItemtoStorage() {
+  async adNewItemtoStorage(itemInput:string, storage:string,storageDetail:string) {
     const docRef = await addDoc(collection(this.db, 'itemStorage'), {
-      item: 'Tokyo',
-      storageLocation: 'Japan',
-      storageDetail: 'Schubfach',
+      item: itemInput,
+      storageLocation: storage,
+      storageDetail: storageDetail,
     });
   }
 }
+
