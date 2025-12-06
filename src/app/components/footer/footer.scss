@@ -1,3 +1,5 @@
+@use "../../../styles.scss" as *;
+
 .footer-wrapper {
   position: absolute;
   bottom: 0;
@@ -15,4 +17,13 @@
   background-color:#FFFFFF;
   color: #1F2937;
   border-top: 1px line #E5E7EB;
+}
+
+a{
+  all: unset;
+  color: $linkFont;
+  &:hover {
+    cursor: pointer;
+    color: $linkSocialFont;
+  }
 }
