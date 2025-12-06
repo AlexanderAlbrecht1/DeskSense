@@ -37,11 +37,12 @@ export class DataService {
   }
 
   async getItemOverview() {
+    const itemsInStorage:any = [];
     const querySnapshot = await getDocs(collection(this.db, 'itemStorage'));
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data());
+      itemsInStorage.push(doc.data())
     });
+    return itemsInStorage;
   }
 
   async adNewItemtoStorage(itemInput:string, storage:string,storageDetail:string) {

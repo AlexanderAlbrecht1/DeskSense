@@ -1,18 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DataService } from '../../data.service';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-storage-overiew',
-  imports: [],
+  imports: [MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule],
   templateUrl: './storage-overiew.html',
   styleUrl: './storage-overiew.scss',
 })
 export class StorageOveriew implements OnInit {
 
-  constructor(public dataService : DataService ) {  }
+  itemsInStorage = [];
+  displayedColumns: string[] = ['item', 'storageLocation', 'storageDetail'];
 
-  ngOnInit(): void {
-    this.showItemOverview();
+  constructor(public dataService : DataService, private cdr: ChangeDetectorRef ) {  }
+
+  async ngOnInit(): Promise<void> {
+    this.itemsInStorage = await this.showItemOverview();
+    this.cdr.markForCheck();
   }
 
   showStorageOverview() {
@@ -20,7 +28,9 @@ export class StorageOveriew implements OnInit {
   }
 
   showItemOverview() {
-    this.dataService.getItemOverview();
+   return this.dataService.getItemOverview();
   }
 
 }
+
+
