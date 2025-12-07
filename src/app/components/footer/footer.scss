@@ -1,29 +1,31 @@
-@use "../../../styles.scss" as *;
+@use '../../../styles.scss' as *;
 
 .footer-wrapper {
-  position: absolute;
-  bottom: 0;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  // height: 100px;
   padding: 8px 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color:#FFFFFF;
-  color: #1F2937;
-  border-top: 1px line #E5E7EB;
+  background-color: #ffffff;
+  color: #1f2937;
+  border-top: 1px solid #e5e7eb;
 }
 
-a{
+a {
   all: unset;
   color: $linkFont;
   &:hover {
     cursor: pointer;
     color: $linkSocialFont;
   }
+}
+
+span {
+  font-family: 'DM Serif Text';
+  font-size: 24px;
 }

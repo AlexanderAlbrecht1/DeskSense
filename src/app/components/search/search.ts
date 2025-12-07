@@ -7,6 +7,7 @@ import { merge } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search',
@@ -17,6 +18,7 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     MatTableModule,
+    MatDialogModule
   ],
   templateUrl: './search.html',
   styleUrl: './search.scss',
@@ -63,13 +65,14 @@ export class Search implements OnInit {
     console.log(row.id);
     this.dataService.deleteItem(row.id);
     this.itemsInStorage = await this.showItemOverview();
+    this.searchInput.setValue('');
     this.cdr.markForCheck();
   }
 
   search() {
     const term = this.searchInput.value.trim().toLowerCase();
 
-    if (!term) {
+    if (term) {
       this.searchResult = this.itemsInStorage.filter((item: { item: string }) =>
         item.item.toLowerCase().includes(term)
       );

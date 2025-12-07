@@ -35,10 +35,11 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns" class="clickable" (click)="onItemClick(row)" [class.selected]="clickedItem === row"></tr>
       </table>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions class="space-between">
       <!-- <button matButton>Fenster schließen</button> -->
       <!-- <button matButton>Gegenstand entnehmen</button> -->
-       <div class="btn" mat-dialog-close (click)="takeItem(clickedItem)"><p>Entnehmen</p></div>
+       <div class="btn" [mat-dialog-close]="true" (click)="takeItem(clickedItem)"><p>Entnehmen</p></div>
+       <div class="btn" [mat-dialog-close]="true"><p>Schließen</p></div>
     </mat-card-actions>
   </mat-card>
 </div>

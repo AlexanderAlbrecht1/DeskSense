@@ -1,15 +1,29 @@
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
+// html, body {
+//   height: 100% !important;
+//   margin: 0;
+//   padding: 0;
+// }
+
+/* Global Styles */
 html, body {
-  height: 100% !important;
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* Header & Footer */
+app-header,
+app-footer {
+  flex-shrink: 0;
 }
 
 
@@ -67,6 +81,7 @@ $matTitleFont: #1F2937;
   border-radius: 25px;
   background-color: $btn;
   // box-shadow: 5px 10px 8px $bgGrey;
+  font-family: 'DM Serif Text';
   >p {
     all: unset;
     font-size: 32px;
@@ -91,5 +106,13 @@ $matTitleFont: #1F2937;
   max-width: unset !important;
 }
 
+/* dm-serif-text-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'DM Serif Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/dm-serif-text-v13-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 

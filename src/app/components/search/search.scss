@@ -1,6 +1,10 @@
 @use "../../../styles.scss" as *;
 @use '@angular/material' as mat;
 
+.mat-mdc-form-field {
+  width: 100% !important;
+}
+
 .mat-mdc-dialog-content {
   display: flex !important;
   flex-direction: column !important;
@@ -15,4 +19,9 @@
 
 .selected {
   background-color: #D1D9D3;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
 }
