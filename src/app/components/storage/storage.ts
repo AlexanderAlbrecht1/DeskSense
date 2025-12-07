@@ -56,7 +56,6 @@ export class Storage implements OnInit {
   }
 
   addItemtoStorage() {
-    console.log(this.itemInput.value, this.storage.value, this.storageDetail.value);
     this.dataService.adNewItemtoStorage(this.itemInput.value ?? '', this.storage.value ?? '', this.storageDetail.value ?? '');
   }
 }

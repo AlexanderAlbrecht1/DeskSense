@@ -19,7 +19,6 @@ export class Main {
     const dialogRef = this.dialog.open(Storage);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -27,7 +26,6 @@ export class Main {
     const dialogRef = this.dialog.open(Search);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -35,7 +33,6 @@ export class Main {
     const dialogRef = this.dialog.open(StorageOveriew);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

@@ -41,7 +41,6 @@ export class Search implements OnInit {
   async ngOnInit(): Promise<void> {
     this.itemsInStorage = await this.showItemOverview();
     this.cdr.markForCheck();
-    console.log(this.itemsInStorage);
   }
 
   showItemOverview() {
@@ -58,11 +57,9 @@ export class Search implements OnInit {
 
   onItemClick(row: any) {
     this.clickedItem = row;
-    console.log(this.clickedItem);
   }
 
   async takeItem(row: any) {
-    console.log(row.id);
     this.dataService.deleteItem(row.id);
     this.itemsInStorage = await this.showItemOverview();
     this.searchInput.setValue('');
@@ -76,8 +73,6 @@ export class Search implements OnInit {
       this.searchResult = this.itemsInStorage.filter((item: { item: string }) =>
         item.item.toLowerCase().includes(term)
       );
-      console.log(this.searchResult);
-
       this.itemsInStorage = this.searchResult;
       this.cdr.markForCheck();
     }

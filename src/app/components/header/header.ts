@@ -12,8 +12,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class Header {
 
   onChange() {
-    console.log('Schlater betätigt');
-
   }
 
 }
