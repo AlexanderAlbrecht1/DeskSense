@@ -5,3 +5,14 @@
   display: flex !important;
   flex-direction: column !important;
 }
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+    background-color: #D1D9D3;
+  }
+}
+
+.selected {
+  background-color: #D1D9D3;
+}

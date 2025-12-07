@@ -1,7 +1,8 @@
+import { Storage } from './components/storage/storage';
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getFirestore, getDoc, doc, collection, getDocs, setDoc, addDoc } from 'firebase/firestore';
+import { getFirestore, getDoc, doc, collection, getDocs, setDoc, addDoc, deleteDoc } from 'firebase/firestore';
 
 import firebaseKeys from './license.json';
 
@@ -37,13 +38,18 @@ export class DataService {
   }
 
   async getItemOverview() {
-    const itemsInStorage:any = [];
-    const querySnapshot = await getDocs(collection(this.db, 'itemStorage'));
-    querySnapshot.forEach((doc) => {
-      itemsInStorage.push(doc.data())
+  const itemsInStorage: any = [];
+  const querySnapshot = await getDocs(collection(this.db, 'itemStorage'));
+
+  querySnapshot.forEach((doc) => {
+    itemsInStorage.push({
+      id: doc.id,
+      ...doc.data()
     });
-    return itemsInStorage;
-  }
+  });
+
+  return itemsInStorage;
+}
 
   async adNewItemtoStorage(itemInput:string, storage:string,storageDetail:string) {
     const docRef = await addDoc(collection(this.db, 'itemStorage'), {
@@ -51,6 +57,10 @@ export class DataService {
       storageLocation: storage,
       storageDetail: storageDetail,
     });
+  }
+
+  async deleteItem(selectedItem:string) {
+    await deleteDoc(doc(this.db, "itemStorage", selectedItem));
   }
 }
 

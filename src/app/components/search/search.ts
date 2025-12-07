@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 export class Search implements OnInit {
   itemsInStorage = [];
   displayedColumns: string[] = ['item', 'storageLocation', 'storageDetail'];
+  clickedItem = {};
 
   readonly searchInput = new FormControl('', Validators.required);
   errorMessage = signal('');
@@ -37,6 +38,8 @@ export class Search implements OnInit {
   async ngOnInit(): Promise<void> {
     this.itemsInStorage = await this.showItemOverview();
     this.cdr.markForCheck();
+    console.log(this.itemsInStorage);
+
   }
 
   showItemOverview() {
@@ -49,5 +52,18 @@ export class Search implements OnInit {
     } else {
       this.errorMessage.set('');
     }
+  }
+
+  onItemClick(row:any) {
+    this.clickedItem = row;
+    console.log(this.clickedItem);
+
+  }
+
+  async takeItem(row:any) {
+    console.log(row.id);
+    this.dataService.deleteItem(row.id);
+    this.itemsInStorage = await this.showItemOverview();
+    this.cdr.markForCheck();
   }
 }

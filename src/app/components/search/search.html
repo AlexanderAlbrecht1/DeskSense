@@ -1,13 +1,7 @@
 <div class="search-wrapper">
-    <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width">
     <mat-label>Was suchst du?</mat-label>
-    <input
-      matInput
-      required
-      [formControl]="searchInput"
-      placeholder="Bsp: USB-C Kabel"
-      value=""
-    />
+    <input matInput required [formControl]="searchInput" placeholder="Bsp: USB-C Kabel" value="" />
     @if (searchInput.invalid) {
     <mat-error>{{ errorMessage() }}</mat-error>
     }
@@ -20,7 +14,6 @@
     </mat-card-header>
 
     <mat-card-content>
-
       <table mat-table [dataSource]="itemsInStorage">
         <ng-container matColumnDef="item">
           <th mat-header-cell *matHeaderCellDef>Gegenstand</th>
@@ -36,14 +29,13 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" class="clickable" (click)="onItemClick(row)" [class.selected]="clickedItem === row"></tr>
       </table>
-
     </mat-card-content>
     <mat-card-actions>
-      <button matButton>LIKE</button>
-      <button matButton>SHARE</button>
+      <!-- <button matButton>Fenster schließen</button> -->
+      <!-- <button matButton>Gegenstand entnehmen</button> -->
+       <div class="btn" mat-dialog-close (click)="takeItem(clickedItem)"><p>Entnehmen</p></div>
     </mat-card-actions>
   </mat-card>
-
 </div>
