@@ -1,7 +1,10 @@
 <div class="search-wrapper">
   <mat-form-field class="example-full-width">
     <mat-label>Was suchst du?</mat-label>
-    <input matInput required [formControl]="searchInput" placeholder="Bsp: USB-C Kabel" value="" />
+    <input matInput required [formControl]="searchInput" (keydown.enter)="onEnter()" placeholder="Bsp: USB-C Kabel" value="" />
+    <button mat-raised-button color="primary" (click)="search()">
+  Suchen
+</button>
     @if (searchInput.invalid) {
     <mat-error>{{ errorMessage() }}</mat-error>
     }

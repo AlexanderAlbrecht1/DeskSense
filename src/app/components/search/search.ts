@@ -22,11 +22,12 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './search.scss',
 })
 export class Search implements OnInit {
-  itemsInStorage = [];
+  searchResult: any = [];
+  itemsInStorage: any = [];
   displayedColumns: string[] = ['item', 'storageLocation', 'storageDetail'];
   clickedItem = {};
 
-  readonly searchInput = new FormControl('', Validators.required);
+  readonly searchInput = new FormControl('', { nonNullable: true });
   errorMessage = signal('');
 
   constructor(public dataService: DataService, private cdr: ChangeDetectorRef) {
@@ -39,7 +40,6 @@ export class Search implements OnInit {
     this.itemsInStorage = await this.showItemOverview();
     this.cdr.markForCheck();
     console.log(this.itemsInStorage);
-
   }
 
   showItemOverview() {
@@ -54,16 +54,33 @@ export class Search implements OnInit {
     }
   }
 
-  onItemClick(row:any) {
+  onItemClick(row: any) {
     this.clickedItem = row;
     console.log(this.clickedItem);
-
   }
 
-  async takeItem(row:any) {
+  async takeItem(row: any) {
     console.log(row.id);
     this.dataService.deleteItem(row.id);
     this.itemsInStorage = await this.showItemOverview();
     this.cdr.markForCheck();
+  }
+
+  search() {
+    const term = this.searchInput.value.trim().toLowerCase();
+
+    if (!term) {
+      this.searchResult = this.itemsInStorage.filter((item: { item: string }) =>
+        item.item.toLowerCase().includes(term)
+      );
+      console.log(this.searchResult);
+
+      this.itemsInStorage = this.searchResult;
+      this.cdr.markForCheck();
+    }
+  }
+
+  onEnter() {
+    this.search();
   }
 }
