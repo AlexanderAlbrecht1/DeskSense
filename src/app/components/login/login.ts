@@ -7,11 +7,13 @@ import {MatInputModule} from '@angular/material/input';
 import {merge} from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {MatIconModule} from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
-  imports: [MatCardModule, MatButtonModule, FormsModule, ReactiveFormsModule,MatFormFieldModule,MatInputModule, MatIconModule],
+  imports: [MatCardModule, MatButtonModule, FormsModule, ReactiveFormsModule,MatFormFieldModule,MatInputModule, MatIconModule, MatTooltipModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
@@ -41,6 +43,11 @@ export class Login {
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
+  }
+
+  login() {
+    console.log('Userdata read:', this.email.value);
+
   }
 
 }

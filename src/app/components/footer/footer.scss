@@ -16,15 +16,6 @@
   border-top: 1px solid #e5e7eb;
 }
 
-a {
-  all: unset;
-  color: $linkFont;
-  &:hover {
-    cursor: pointer;
-    color: $linkSocialFont;
-  }
-}
-
 span {
   font-family: 'DM Serif Text';
   font-size: 24px;

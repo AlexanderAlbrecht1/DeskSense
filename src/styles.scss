@@ -94,6 +94,15 @@ $matTitleFont: #1F2937;
   }
 }
 
+a {
+  all: unset;
+  color: $linkFont;
+  &:hover {
+    cursor: pointer;
+    color: $linkSocialFont;
+  }
+}
+
 :root {
   @include mat.dialog-overrides((
     container-color: #D1D9D3,
@@ -104,6 +113,10 @@ $matTitleFont: #1F2937;
 
 .mat-mdc-dialog-container {
   max-width: unset !important;
+}
+
+.mt-32 {
+  margin-top: 32px;
 }
 
 /* dm-serif-text-regular - latin */
