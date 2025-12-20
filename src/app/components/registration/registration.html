@@ -1,1 +1,66 @@
-<p>registration works!</p>
+<div class="wrapper-registration">
+  <h1 style="margin-bottom: 32px;">Herzlich Willkommen bei DeskSense!</h1>
+  <mat-card class="example-card" appearance="outlined">
+
+    <mat-card-header>
+      <mat-card-title style="margin-bottom: 16px;">Registrierung</mat-card-title>
+      <mat-card-subtitle>Hier kannst du dich für DeskSense registrieren.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="wrapper-registration">
+        <mat-form-field style="width: 100%">
+          <mat-label>Deine Emailadresse eingeben</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            [formControl]="email"
+            (blur)="updateErrorMessage()"
+            required
+          />
+          @if (email.invalid) {
+          <mat-error>{{ errorMessage() }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%">
+          <mat-label>Dein Passwort eingeben</mat-label>
+          <input matInput [type]="hide() ? 'password' : 'text'" required [formControl]="password" />
+          <button
+            matIconButton
+            matSuffix
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%">
+          <mat-label>Passwort wiederholen</mat-label>
+          <input matInput [type]="hide() ? 'password' : 'text'" required [formControl]="repeatedPassword" />
+          <button
+            matIconButton
+            matSuffix
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div class="btn" (click)="register()" matTooltip="Klicken zum Einloggen">
+          <p>Registrieren</p>
+        </div>
+
+
+        <div class="mt-32" [routerLink]="['/login']" matTooltip="Klicke um dich anzumelden" >
+          <a>Du hast bereits einen Account?</a>
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
