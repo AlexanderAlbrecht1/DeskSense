@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getFirestore, getDoc, doc, collection, getDocs, setDoc, addDoc, deleteDoc } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 import firebaseKeys from './license.json';
 
@@ -10,7 +11,7 @@ import firebaseKeys from './license.json';
   providedIn: 'root',
 })
 export class DataService {
-  firebaseConfig = {
+firebaseConfig = {
     apiKey: firebaseKeys.apiKey,
     authDomain: firebaseKeys.authDomain,
     projectId: firebaseKeys.projectId,
@@ -62,5 +63,23 @@ export class DataService {
   async deleteItem(selectedItem:string) {
     await deleteDoc(doc(this.db, "itemStorage", selectedItem));
   }
+
+  register(email: string, password: string) {
+      console.log(email, password);
+
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    }
+
 }
 
