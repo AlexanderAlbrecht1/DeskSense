@@ -9,6 +9,7 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
 @Component({
