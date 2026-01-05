@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { RouterLink } from "@angular/router";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   styleUrl: './header.scss',
 })
 export class Header {
+
+  constructor(private userService: UserService) {
+
+  }
 
   onChange() {
   }

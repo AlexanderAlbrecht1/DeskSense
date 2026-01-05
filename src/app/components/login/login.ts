@@ -75,10 +75,11 @@ export class Login {
       this.dataService.login(email, password);
       if (this.dataService.credentialsOk) {
         this.userService.isUserLogged = true;
-        this.router.navigate(['/']);
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 1000);
       } else {
         console.log('Login fehlgeschlagen');
-
       }
     }
   }
